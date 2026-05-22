@@ -50,6 +50,23 @@ Highlights:
 - Quarantine-first remediation
 - Rollback metadata and reporting
 
+### Check Current Patch Level
+
+PowerShell 5.1 server update audit workflow for checking installed updates, connectivity, and reporting patch status across Windows servers.
+
+Project files:
+
+- [`Check_Current_PatchLevel`](./Check_Current_PatchLevel/)
+- [`Project README`](./Check_Current_PatchLevel/README.md)
+- [`Get-ServerUpdateAudit.ps1`](./Check_Current_PatchLevel/Get-ServerUpdateAudit.ps1)
+
+Highlights:
+
+- Patch and update inventory reporting
+- Dry-run and connectivity-only validation
+- WinRM and no-WinRM compatible collection paths
+- Reusable reporting module
+- Configuration-driven server targeting
 ## Design Principles
 
 Scripts in this repo should aim to be:
