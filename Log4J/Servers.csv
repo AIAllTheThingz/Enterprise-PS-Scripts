@@ -1,0 +1,4 @@
+ServerName,FQDN,Notes,TicketNumber,ChangeWindow,ApplicationOwner,MaintenanceApproved
+SERVER01,server01.domain.local,Application server scan,CHG000001,2026-05-25,Application Team,$false
+SERVER02,server02.domain.local,Approved remediation candidate,CHG000002,2026-05-25,Middleware Team,$true
+SERVER03,,Use constructed FQDN when configured,CHG000003,2026-05-25,Infrastructure,$false

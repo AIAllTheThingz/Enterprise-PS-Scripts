@@ -32,6 +32,24 @@ Some scripts are simple single-purpose tools. Others are larger, safer workflows
 
 ## Current Projects
 
+### Log4j Detection and Remediation
+
+PowerShell 5.1 detection, reporting, preview, and guarded remediation workflow for Apache Log4j / Log4Shell-related exposure across Windows servers and localhost scans.
+
+Project files:
+
+- [`Log4J`](./Log4J/)
+- [`Project README`](./Log4J/README.md)
+- [`Invoke-Log4jRemediation.ps1`](./Log4J/Invoke-Log4jRemediation.ps1)
+
+Highlights:
+
+- Audit-first Log4j inventory and classification
+- WinRM, No-WinRM, and localhost collection modes
+- CSV, JSON, TXT, and HTML reporting
+- Guarded vendor replacement and emergency JndiLookup mitigation workflows
+- Quarantine, rollback metadata, and code-signing guidance
+
 ### MSXML4 Remediation
 
 PowerShell 5.1 detection, reporting, and optional remediation workflow for Microsoft MSXML 4 exposure across Windows servers.
