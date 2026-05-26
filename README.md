@@ -32,6 +32,24 @@ Some scripts are simple single-purpose tools. Others are larger, safer workflows
 
 ## Current Projects
 
+### Reboot In Order
+
+PowerShell 5.0 multi-stack reboot orchestration workflow for controlled application stack restarts using CSV-defined stack order, schedule windows, health checks, optional service monitoring, and enterprise reporting.
+
+Project files:
+
+- [`Reboot_in_Order`](./Reboot_in_Order/)
+- [`Project README`](./Reboot_in_Order/README.md)
+- [`Reboot-InOrder.ps1`](./Reboot_in_Order/Reboot-InOrder.ps1)
+
+Highlights:
+
+- Multi-stack reboot sequencing from CSV
+- Schedule and maintenance-window controls
+- Ping, WinRM, optional remote command, and optional service checks
+- CSV, JSON, and HTML reporting
+- Scheduled Task and code-signing guidance
+
 ### Log4j Detection and Remediation
 
 PowerShell 5.1 detection, reporting, preview, and guarded remediation workflow for Apache Log4j / Log4Shell-related exposure across Windows servers and localhost scans.
