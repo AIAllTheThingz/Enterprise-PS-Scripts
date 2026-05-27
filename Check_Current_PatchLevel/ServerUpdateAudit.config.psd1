@@ -25,7 +25,7 @@
         IncludeWindowsUpdateHistory = $true
         IncludeDefenderUpdates = $false
         IncludeDotNetUpdates = $true
-        IncludeSecurityUpdates = $true
+        IncludeSecurityUpdates = $false
         IncludeCumulativeUpdates = $true
         IncludeGeneralWindowsUpdates = $true
         IncludeServicingStackUpdates = $true
