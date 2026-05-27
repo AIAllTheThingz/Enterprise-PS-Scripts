@@ -23,7 +23,7 @@
     Query = @{
         IncludeHotFix = $true
         IncludeWindowsUpdateHistory = $true
-        IncludeDefenderUpdates = $true
+        IncludeDefenderUpdates = $false
         IncludeDotNetUpdates = $true
         IncludeSecurityUpdates = $true
         IncludeCumulativeUpdates = $true

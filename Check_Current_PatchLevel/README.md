@@ -148,7 +148,7 @@ Example structure:
     Query = @{
         IncludeHotFix = $true
         IncludeWindowsUpdateHistory = $true
-        IncludeDefenderUpdates = $true
+        IncludeDefenderUpdates = $false
         IncludeDotNetUpdates = $true
         IncludeSecurityUpdates = $true
         IncludeCumulativeUpdates = $true
@@ -440,7 +440,7 @@ Updates are normalized into these report categories:
 - `Other Update`
 - `Unknown`
 
-`Security Intelligence Update`, including Microsoft Defender Antivirus security intelligence titles, is omitted from reports unless `Query.IncludeSecurityIntelligenceUpdatesInReports = $true`.
+`Security Intelligence Update`, including Microsoft Defender Antivirus security intelligence titles, is not collected by default because `Query.IncludeDefenderUpdates = $false`, and is also omitted from reports unless `Query.IncludeSecurityIntelligenceUpdatesInReports = $true`.
 
 `Security Update` is omitted from reports unless `Query.IncludeSecurityUpdatesInReports = $true`.
 
