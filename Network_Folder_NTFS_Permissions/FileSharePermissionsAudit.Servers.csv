@@ -1,0 +1,7 @@
+ServerName,Enabled,Notes
+FILESERVER01.domain.com,true,Primary file server
+FILESERVER02.domain.com,true,Department share server
+localhost,true,Local machine example
+.,true,Alternate localhost example
+127.0.0.1,true,Loopback example
+FILESERVER03.domain.com,false,Disabled example
