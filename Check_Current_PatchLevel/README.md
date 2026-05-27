@@ -154,6 +154,8 @@ Example structure:
         IncludeCumulativeUpdates = $true
         IncludeGeneralWindowsUpdates = $true
         IncludeServicingStackUpdates = $true
+        IncludeSecurityIntelligenceUpdatesInReports = $false
+        IncludeSecurityUpdatesInReports = $false
         HistoryMonthsBack = 6
         CategoryFilters = @()
         ExclusionList = @()
@@ -437,6 +439,12 @@ Updates are normalized into these report categories:
 - `Hotfix / KB Update`
 - `Other Update`
 - `Unknown`
+
+`Security Intelligence Update`, including Microsoft Defender Antivirus security intelligence titles, is omitted from reports unless `Query.IncludeSecurityIntelligenceUpdatesInReports = $true`.
+
+`Security Update` is omitted from reports unless `Query.IncludeSecurityUpdatesInReports = $true`.
+
+The source collection settings, such as `IncludeDefenderUpdates` and `IncludeSecurityUpdates`, still control whether those sources are queried. The report-specific settings above control whether the matching categories are emitted to CSV, JSON, TXT, and HTML outputs.
 
 ## Report Output
 

@@ -29,6 +29,13 @@
         IncludeCumulativeUpdates = $true
         IncludeGeneralWindowsUpdates = $true
         IncludeServicingStackUpdates = $true
+
+        # Report noise controls.
+        # These categories are collected when source collection is enabled, but
+        # they only appear in CSV/JSON/TXT/HTML reports when set to $true.
+        IncludeSecurityIntelligenceUpdatesInReports = $false
+        IncludeSecurityUpdatesInReports = $false
+
         HistoryMonthsBack = 6
         CategoryFilters = @()
         ExclusionList = @()

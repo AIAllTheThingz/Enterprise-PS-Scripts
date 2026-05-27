@@ -546,6 +546,8 @@ function Import-AuditConfiguration {
             IncludeDefenderUpdates         = ConvertTo-BooleanSetting -Value (Get-HashtableValue -Table $query -Name 'IncludeDefenderUpdates') -Name 'Query.IncludeDefenderUpdates'
             IncludeDotNetUpdates           = ConvertTo-BooleanSetting -Value (Get-HashtableValue -Table $query -Name 'IncludeDotNetUpdates') -Name 'Query.IncludeDotNetUpdates'
             IncludeSecurityUpdates         = ConvertTo-BooleanSetting -Value (Get-HashtableValue -Table $query -Name 'IncludeSecurityUpdates') -Name 'Query.IncludeSecurityUpdates'
+            IncludeSecurityIntelligenceUpdatesInReports = if ($query.ContainsKey('IncludeSecurityIntelligenceUpdatesInReports')) { ConvertTo-BooleanSetting -Value $query['IncludeSecurityIntelligenceUpdatesInReports'] -Name 'Query.IncludeSecurityIntelligenceUpdatesInReports' } else { ConvertTo-BooleanSetting -Value (Get-HashtableValue -Table $query -Name 'IncludeDefenderUpdates') -Name 'Query.IncludeDefenderUpdates' }
+            IncludeSecurityUpdatesInReports = if ($query.ContainsKey('IncludeSecurityUpdatesInReports')) { ConvertTo-BooleanSetting -Value $query['IncludeSecurityUpdatesInReports'] -Name 'Query.IncludeSecurityUpdatesInReports' } else { ConvertTo-BooleanSetting -Value (Get-HashtableValue -Table $query -Name 'IncludeSecurityUpdates') -Name 'Query.IncludeSecurityUpdates' }
             IncludeCumulativeUpdates       = ConvertTo-BooleanSetting -Value (Get-HashtableValue -Table $query -Name 'IncludeCumulativeUpdates') -Name 'Query.IncludeCumulativeUpdates'
             IncludeGeneralWindowsUpdates   = if ($query.ContainsKey('IncludeGeneralWindowsUpdates')) { ConvertTo-BooleanSetting -Value $query['IncludeGeneralWindowsUpdates'] -Name 'Query.IncludeGeneralWindowsUpdates' } else { $true }
             IncludeServicingStackUpdates   = if ($query.ContainsKey('IncludeServicingStackUpdates')) { ConvertTo-BooleanSetting -Value $query['IncludeServicingStackUpdates'] -Name 'Query.IncludeServicingStackUpdates' } else { $true }
@@ -1234,7 +1236,7 @@ function Classify-UpdateRecord {
     $text = '{0} {1} {2}' -f [string]$Record.KBNumber, [string]$Record.UpdateTitle, [string]$Record.RawCategory
     $classification = 'Unknown'
 
-    if ($text -match '(?i)security intelligence|defender|antimalware|signature update|platform update') {
+    if ($text -match '(?i)security intelligence|security intelligence update for microsoft defender antiviru|defender|antimalware|signature update|platform update') {
         $classification = 'Security Intelligence Update'
     }
     elseif ($text -match '(?i)\.net framework|\.net|dotnet') {
@@ -1748,13 +1750,13 @@ function Get-LatestCategoryUpdates {
                 if ($QuerySettings.IncludeCumulativeUpdates) { $record }
             }
             'Security Update' {
-                if ($QuerySettings.IncludeSecurityUpdates) { $record }
+                if ($QuerySettings.IncludeSecurityUpdatesInReports) { $record }
             }
             '.NET Update' {
                 if ($QuerySettings.IncludeDotNetUpdates) { $record }
             }
             'Security Intelligence Update' {
-                if ($QuerySettings.IncludeDefenderUpdates) { $record }
+                if ($QuerySettings.IncludeSecurityIntelligenceUpdatesInReports) { $record }
             }
             'Servicing Stack Update' {
                 if ($QuerySettings.IncludeServicingStackUpdates) { $record }
